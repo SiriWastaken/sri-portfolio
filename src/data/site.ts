@@ -1,7 +1,7 @@
 export const site = {
-  name: "Sri Ganty",
+  name: "SiriWasTaken (Sri)",
   shortName: "Sri",
-  title: "Sri Ganty — Student Developer",
+  title: "SiriWasTaken (Sri) - Student Developer",
   description:
     "Student developer building full-stack software, robotics tools, and systems that solve real problems. Software for FRC Team 610, iOS, and hardware experiments.",
   githubUrl: "https://github.com/SiriWastaken",

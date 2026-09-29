@@ -3,6 +3,7 @@ import { getProjectAssets } from "@/assets/projects";
 import type { Project } from "@/data/types";
 import { MetaList } from "@/components/ui/meta-list";
 import { HighlightList } from "./highlight-list";
+import { ImagePlaceholder } from "./image-placeholder";
 import { ProjectImage } from "./project-image";
 import { ProjectLinks } from "./project-links";
 import { StatusLabel } from "./status-label";
@@ -11,7 +12,7 @@ import { TechList } from "./tech-list";
 
 /** The largest project treatment: reserved for the scouting systems. */
 export function FlagshipProject({ project, position }: { project: Project; position: number }) {
-  const { hero } = getProjectAssets(project.slug);
+  const { hero, heroSlot } = getProjectAssets(project.slug);
   const titleId = `project-${project.slug}`;
 
   return (
@@ -46,6 +47,8 @@ export function FlagshipProject({ project, position }: { project: Project; posit
         <div className="mt-8">
           {hero ? (
             <ProjectImage image={hero} sizes="(min-width: 1152px) 820px, (min-width: 768px) 75vw, 100vw" />
+          ) : heroSlot ? (
+            <ImagePlaceholder slug={project.slug} slot={heroSlot} />
           ) : project.flow ? (
             <SystemFlow flow={project.flow} />
           ) : null}

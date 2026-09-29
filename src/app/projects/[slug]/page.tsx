@@ -5,6 +5,7 @@ import { getProjectAssets } from "@/assets/projects";
 import { DetailSection, Prose } from "@/components/project-detail/detail-section";
 import { ProjectHeader } from "@/components/project-detail/project-header";
 import { HighlightList } from "@/components/projects/highlight-list";
+import { ImagePlaceholder } from "@/components/projects/image-placeholder";
 import { ProjectImage } from "@/components/projects/project-image";
 import { SystemFlow } from "@/components/projects/system-flow";
 import { TechList } from "@/components/projects/tech-list";
@@ -44,7 +45,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project?.details) notFound();
 
   const { details } = project;
-  const { hero, screenshots, diagrams } = getProjectAssets(project.slug);
+  const { hero, heroSlot, screenshots, diagrams, screenshotSlots, diagramSlots } = getProjectAssets(project.slug);
+  const hasTopImage = Boolean(hero || heroSlot);
 
   const withDetails = getProjectsWithDetails();
   const next = withDetails[(withDetails.findIndex((p) => p.slug === project.slug) + 1) % withDetails.length];
@@ -54,11 +56,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Container>
         <ProjectHeader project={project} />
 
-        {hero || project.flow ? (
+        {hasTopImage || project.flow ? (
           <div className="pb-12 md:grid md:grid-cols-12 md:gap-x-8">
             <div className="md:col-span-9 md:col-start-4">
               {hero ? (
                 <ProjectImage image={hero} eager sizes="(min-width: 1152px) 820px, (min-width: 768px) 75vw, 100vw" />
+              ) : heroSlot ? (
+                <ImagePlaceholder slug={project.slug} slot={heroSlot} />
               ) : project.flow ? (
                 <SystemFlow flow={project.flow} />
               ) : null}
@@ -90,6 +94,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <DetailSection id="architecture" title="Architecture">
           <Prose paragraphs={details.architecture} />
+          {hasTopImage && project.flow ? (
+            <div className="mt-8">
+              <SystemFlow flow={project.flow} />
+            </div>
+          ) : null}
           {diagrams.map((diagram) => (
             <ProjectImage
               key={diagram.alt}
@@ -97,6 +106,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               sizes="(min-width: 1152px) 820px, (min-width: 768px) 75vw, 100vw"
               className="mt-8"
             />
+          ))}
+          {diagramSlots.map((slot) => (
+            <ImagePlaceholder key={slot.file} slug={project.slug} slot={slot} className="mt-8" />
           ))}
         </DetailSection>
 
@@ -111,15 +123,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </DetailSection>
 
-        {screenshots.length > 0 ? (
+        {screenshots.length > 0 || screenshotSlots.length > 0 ? (
           <DetailSection id="screenshots" title="Screenshots">
-            <div className="grid gap-10">
+            <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
               {screenshots.map((shot) => (
-                <ProjectImage
-                  key={shot.alt}
-                  image={shot}
-                  sizes="(min-width: 1152px) 820px, (min-width: 768px) 75vw, 100vw"
-                />
+                <ProjectImage key={shot.alt} image={shot} sizes="(min-width: 1152px) 400px, (min-width: 640px) 45vw, 100vw" />
+              ))}
+              {screenshotSlots.map((slot) => (
+                <ImagePlaceholder key={slot.file} slug={project.slug} slot={slot} />
               ))}
             </div>
           </DetailSection>

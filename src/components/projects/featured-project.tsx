@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getProjectAssets } from "@/assets/projects";
 import type { Project } from "@/data/types";
 import { HighlightList } from "./highlight-list";
+import { ImagePlaceholder } from "./image-placeholder";
 import { ProjectImage } from "./project-image";
 import { ProjectLinks } from "./project-links";
 import { StatusLabel } from "./status-label";
@@ -9,7 +10,7 @@ import { TechList } from "./tech-list";
 
 /** Mid-weight treatment: shown two-up beneath the flagship projects. */
 export function FeaturedProject({ project }: { project: Project }) {
-  const { hero } = getProjectAssets(project.slug);
+  const { hero, heroSlot } = getProjectAssets(project.slug);
   const titleId = `project-${project.slug}`;
 
   return (
@@ -36,6 +37,8 @@ export function FeaturedProject({ project }: { project: Project }) {
 
       {hero ? (
         <ProjectImage image={hero} sizes="(min-width: 768px) 45vw, 100vw" className="mt-6" />
+      ) : heroSlot ? (
+        <ImagePlaceholder slug={project.slug} slot={heroSlot} className="mt-6" />
       ) : null}
 
       <HighlightList items={project.highlights} className="mt-6" />

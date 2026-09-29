@@ -53,7 +53,13 @@ const assets: ProjectAssets = {
 };
 ```
 
-Images go through `next/image` (resized, AVIF/WebP, blurred placeholder). A project with a hero image shows it on the home page instead of its data-flow diagram.
+Then delete that image's entry from `planned` in the same file.
+
+### Placeholders
+
+Each project's `index.ts` has a `planned` list: the shots still to take, where to save them, and their aspect ratio. In `npm run dev` these render as labelled frames exactly where the images will appear. They never appear on the live site unless you set `NEXT_PUBLIC_SHOW_IMAGE_PLACEHOLDERS=true`.
+
+Images go through `next/image` (resized, AVIF/WebP, blurred placeholder). A project with a hero image shows it on the home page instead of its data-flow diagram; the diagram moves into the Architecture section of its project page.
 
 ## Icons
 

@@ -1,4 +1,5 @@
-import type { ProjectAssets } from "./types";
+import { showImagePlaceholders } from "./placeholders";
+import type { ImageSlot, ProjectAssets } from "./types";
 import codingInOrbit from "./coding-in-orbit";
 import matchSim from "./match-sim";
 import millionaire from "./millionaire";
@@ -6,7 +7,7 @@ import scoutingApp2026 from "./scouting-app-2026";
 import scoutingWeb2027 from "./scouting-web-2027";
 import wiiFitScale from "./wii-fit-scale";
 
-export type { ProjectAssets, ProjectImage } from "./types";
+export type { ImageSlot, ProjectAssets, ProjectImage } from "./types";
 
 /**
  * Images for each project, keyed by the project's slug in src/data/projects.ts.
@@ -21,7 +22,24 @@ const registry: Record<string, ProjectAssets> = {
   "match-sim": matchSim,
 };
 
-export function getProjectAssets(slug: string): Required<Pick<ProjectAssets, "screenshots" | "diagrams">> & ProjectAssets {
+export type ResolvedProjectAssets = ProjectAssets & {
+  screenshots: NonNullable<ProjectAssets["screenshots"]>;
+  diagrams: NonNullable<ProjectAssets["diagrams"]>;
+  /** Placeholder slots to render right now (empty on the live site by default). */
+  heroSlot?: ImageSlot;
+  screenshotSlots: ImageSlot[];
+  diagramSlots: ImageSlot[];
+};
+
+export function getProjectAssets(slug: string): ResolvedProjectAssets {
   const assets = registry[slug] ?? {};
-  return { ...assets, screenshots: assets.screenshots ?? [], diagrams: assets.diagrams ?? [] };
+  const planned = showImagePlaceholders ? (assets.planned ?? []) : [];
+  return {
+    ...assets,
+    screenshots: assets.screenshots ?? [],
+    diagrams: assets.diagrams ?? [],
+    heroSlot: assets.hero ? undefined : planned.find((slot) => slot.kind === "hero"),
+    screenshotSlots: planned.filter((slot) => slot.kind === "screenshot"),
+    diagramSlots: planned.filter((slot) => slot.kind === "diagram"),
+  };
 }
