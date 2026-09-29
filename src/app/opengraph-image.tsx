@@ -1,0 +1,39 @@
+import { ImageResponse } from "next/og";
+import { site } from "@/data/site";
+
+export const alt = `${site.name}: student developer`;
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default function OpengraphImage() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          padding: "72px 80px",
+          background: "#f5f4ef",
+          color: "#16181a",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 24, color: "#595e5b" }}>
+          <div style={{ width: 12, height: 12, borderRadius: 6, background: "#1b6843" }} />
+          Student developer · FRC Team 610
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 92, fontWeight: 700, letterSpacing: -3 }}>{site.name}</div>
+          <div style={{ marginTop: 24, fontSize: 36, lineHeight: 1.3, maxWidth: 940, color: "#3a3e3c" }}>
+            Building full-stack software, robotics tools, and systems that solve real problems.
+          </div>
+        </div>
+        <div style={{ display: "flex", height: 4, width: 160, background: "#1b6843" }} />
+      </div>
+    ),
+    size,
+  );
+}

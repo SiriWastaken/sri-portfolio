@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. A warm paper background, near-black ink, and one accent
+ * (a green borrowed from Team 610). Structure comes from hairline rules and
+ * a 12-column grid rather than cards and shadows.
+ */
+:root {
+  --bg: #f5f4ef;
+  --surface: #ecebe4;
+  --ink: #16181a;
+  --muted: #595e5b;
+  --rule: #d8d6cd;
+  --rule-strong: #b9b7ad;
+  --accent: #1b6843;
+  --accent-soft: #dfe9e1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1110;
+    --surface: #171a18;
+    --ink: #e7e6e0;
+    --muted: #9ea39e;
+    --rule: #272b28;
+    --rule-strong: #3a3f3b;
+    --accent: #7cc59f;
+    --accent-soft: #1a2a21;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "ss02";
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
