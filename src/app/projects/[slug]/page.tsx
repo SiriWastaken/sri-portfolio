@@ -111,32 +111,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </DetailSection>
 
-        {details.implemented || details.planned ? (
-          <DetailSection id="progress" title="Done and not done">
-            <div className="grid max-w-3xl gap-10 sm:grid-cols-2">
-              {details.implemented ? (
-                <div>
-                  <h3 className="font-mono text-xs tracking-wide text-muted uppercase">Working now</h3>
-                  <HighlightList items={details.implemented} className="mt-4" />
-                </div>
-              ) : null}
-              {details.planned ? (
-                <div>
-                  <h3 className="font-mono text-xs tracking-wide text-muted uppercase">Planned</h3>
-                  <ul className="mt-4 grid gap-y-4 text-sm leading-relaxed text-muted">
-                    {details.planned.map((item) => (
-                      <li key={item} className="relative pl-4">
-                        <span aria-hidden="true" className="absolute top-[0.6em] left-0 h-px w-2 border-t border-dashed border-muted" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-            </div>
-          </DetailSection>
-        ) : null}
-
         {screenshots.length > 0 ? (
           <DetailSection id="screenshots" title="Screenshots">
             <div className="grid gap-10">

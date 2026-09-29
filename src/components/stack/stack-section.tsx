@@ -20,7 +20,12 @@ export function StackSection() {
                 <li key={tech.name} className="group flex items-start gap-4 py-3">
                   <TechIcon icon={tech.icon} className="mt-0.5 size-5" />
                   <div>
-                    <p className="font-medium">{tech.name}</p>
+                    <p className="flex flex-wrap items-baseline gap-x-2 font-medium">
+                      {tech.name}
+                      {tech.learning ? (
+                        <span className="font-mono text-[11px] font-normal tracking-wide text-accent uppercase">Learning</span>
+                      ) : null}
+                    </p>
                     <p className="mt-1 text-sm leading-relaxed text-muted">{tech.usedIn}</p>
                   </div>
                 </li>

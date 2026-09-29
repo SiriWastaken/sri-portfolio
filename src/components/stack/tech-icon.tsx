@@ -1,4 +1,4 @@
-import type { SimpleIcon } from "simple-icons";
+import type { TechIconData } from "@/assets/icons/types";
 
 /** True when the brand colour is too dark to read as a hover colour. */
 function isNearBlack(hex: string) {
@@ -7,14 +7,14 @@ function isNearBlack(hex: string) {
 }
 
 /**
- * Official brand mark from Simple Icons, drawn in the current text colour.
+ * Official brand mark (Simple Icons, or vendored in src/assets/icons), drawn in the current text colour.
  * The parent should be a `group`; on hover the icon takes its brand colour.
  */
-export function TechIcon({ icon, className = "size-6" }: { icon: SimpleIcon; className?: string }) {
+export function TechIcon({ icon, className = "size-6" }: { icon: TechIconData; className?: string }) {
   const brand = isNearBlack(icon.hex) ? undefined : `#${icon.hex}`;
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox={icon.viewBox ?? "0 0 24 24"}
       aria-hidden="true"
       focusable="false"
       fill="currentColor"

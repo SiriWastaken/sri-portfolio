@@ -5,16 +5,20 @@ import {
   siNextdotjs,
   siOpenjdk,
   siReact,
+  siSwift,
   siTypescript,
   siVercel,
-  type SimpleIcon,
 } from "simple-icons";
+import { csharp } from "@/assets/icons/csharp";
+import type { TechIconData } from "@/assets/icons/types";
 
 export type Technology = {
   name: string;
-  icon: SimpleIcon;
+  icon: TechIconData;
   /** Where I've actually used it. Keeps the section from being a logo wall. */
   usedIn: string;
+  /** Still learning it: shown with a "Learning" tag. */
+  learning?: boolean;
 };
 
 export type TechnologyGroup = {
@@ -37,6 +41,18 @@ export const stack: TechnologyGroup[] = [
         name: "TypeScript",
         icon: siTypescript,
         usedIn: "Both scouting projects, the match sim, and this site.",
+      },
+      {
+        name: "Swift / SwiftUI",
+        icon: siSwift,
+        usedIn: "Building Coding in Orbit, my Swift Student Challenge app, with it.",
+        learning: true,
+      },
+      {
+        name: "C#",
+        icon: csharp,
+        usedIn: "Early days. Nothing on this page uses it yet.",
+        learning: true,
       },
     ],
   },
@@ -88,4 +104,4 @@ export const stack: TechnologyGroup[] = [
 ];
 
 /** Used in projects on this site, but not part of my core stack. */
-export const alsoUsed = ["Swift & SwiftUI", "Expo", "Tailwind CSS", "Couchbase", "Playwright"];
+export const alsoUsed = ["Expo", "Tailwind CSS", "Couchbase", "Playwright"];

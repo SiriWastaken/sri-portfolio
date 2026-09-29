@@ -1,11 +1,10 @@
-import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { site } from "@/data/site";
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="pt-16 pb-4 sm:pt-24">
+    <section aria-labelledby="hero-heading" className="pt-16 pb-8 sm:pt-24">
       <Container>
         <div className="grid gap-y-6 md:grid-cols-12 md:gap-x-8">
           <p className="font-mono text-xs leading-relaxed text-muted md:col-span-3 md:pt-4">
@@ -34,19 +33,9 @@ export function Hero() {
               </ButtonLink>
               <ButtonLink href={site.githubUrl}>GitHub</ButtonLink>
               {site.linkedinUrl ? <ButtonLink href={site.linkedinUrl}>LinkedIn</ButtonLink> : null}
+              <ButtonLink href={site.dmojUrl}>DMOJ</ButtonLink>
             </div>
 
-            <p className="mt-12 font-mono text-xs text-muted">
-              <span className="mr-2 inline-block size-1.5 rounded-full bg-accent align-middle" aria-hidden="true" />
-              Currently building{" "}
-              <Link href="/projects/scouting-web-2027" className="text-ink underline decoration-rule-strong underline-offset-4 hover:text-accent">
-                Scouting Web 2027
-              </Link>{" "}
-              and{" "}
-              <Link href="/projects/coding-in-orbit" className="text-ink underline decoration-rule-strong underline-offset-4 hover:text-accent">
-                Coding in Orbit
-              </Link>
-            </p>
           </div>
         </div>
       </Container>

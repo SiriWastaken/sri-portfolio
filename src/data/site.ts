@@ -5,6 +5,7 @@ export const site = {
   description:
     "Student developer building full-stack software, robotics tools, and systems that solve real problems. Software for FRC Team 610, iOS, and hardware experiments.",
   githubUrl: "https://github.com/SiriWastaken",
+  dmojUrl: "https://dmoj.ca/user/SiriWastaken",
   // TODO: add your LinkedIn profile URL. The LinkedIn button stays hidden until this is set.
   linkedinUrl: undefined as string | undefined,
 } as const;

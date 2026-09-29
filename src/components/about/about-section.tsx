@@ -3,7 +3,7 @@ import { TextLink } from "@/components/ui/text-link";
 
 export function AboutSection() {
   return (
-    <Section id="about" index="05" label="About" title="A bit about me">
+    <Section id="about" index="04" label="About" title="A bit about me">
       <div className="md:grid md:grid-cols-12 md:gap-x-8">
         <div className="max-w-2xl space-y-5 leading-relaxed md:col-span-9 md:col-start-4">
           <p>

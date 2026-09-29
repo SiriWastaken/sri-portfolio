@@ -30,9 +30,6 @@ export type ProjectDetails = {
   role: string[];
   architecture: string[];
   challenges: Challenge[];
-  /** For projects where the line between done and not-done matters. */
-  implemented?: string[];
-  planned?: string[];
   /** Personal reflection. Left undefined until written by me, never generated. */
   learned?: string[];
 };

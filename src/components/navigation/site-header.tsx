@@ -6,7 +6,6 @@ const links = [
   { href: "/#work", label: "Work" },
   { href: "/#stack", label: "Stack" },
   { href: "/#frc", label: "FRC", wideOnly: true },
-  { href: "/#now", label: "Now", wideOnly: true },
   { href: "/#about", label: "About" },
 ];
 

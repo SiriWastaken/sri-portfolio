@@ -20,6 +20,9 @@ export function SiteFooter() {
               <li>
                 <TextLink href={site.githubUrl}>GitHub</TextLink>
               </li>
+              <li>
+                <TextLink href={site.dmojUrl}>DMOJ</TextLink>
+              </li>
               {site.linkedinUrl ? (
                 <li>
                   <TextLink href={site.linkedinUrl}>LinkedIn</TextLink>

@@ -21,13 +21,12 @@ No environment variables are required. Set `NEXT_PUBLIC_SITE_URL` (for example `
 src/
 ├── app/                  Routes, metadata, sitemap, robots, OG image, icon
 │   └── projects/[slug]/  One page per project that has `details`
-├── components/           One folder per section (hero, projects, stack, frc, now, about, contact…)
+├── components/           One folder per section (hero, projects, stack, frc, about, contact…)
 │   └── ui/               Shared primitives: Container, Section, links, MetaList
 ├── data/                 Everything the site says
 │   ├── site.ts           Name, description, GitHub/LinkedIn URLs
 │   ├── projects.ts       All projects: summaries, highlights, case-study content
 │   ├── stack.ts          Technologies, icons, and where each was used
-│   └── now.ts            Active / planned / completed work
 └── assets/projects/      Images, one folder per project slug
     └── <slug>/
         ├── hero/         Main image (home page + top of the project page)

@@ -205,19 +205,6 @@ export const projects: Project[] = [
           body: "Instead of adding accessibility at the end, every setting lives in one manager that views read from, and it also listens for VoiceOver turning on or off.",
         },
       ],
-      implemented: [
-        "Home, options, credits, and mission-selection screens.",
-        "Split-screen workspace with line numbers and live parsing of typed code.",
-        "Parser and rocket model for launch and four-direction movement.",
-        "Persisted accessibility settings.",
-      ],
-      planned: [
-        "Connect the Run button so the rocket responds to the parser's commands.",
-        "Parser error reporting.",
-        "A stop button and adjustable run speed.",
-        "Repeat and if blocks.",
-        "A hand-drawn rocket.",
-      ],
     },
   },
   {
@@ -252,16 +239,6 @@ export const projects: Project[] = [
           title: "Reading before decoding",
           body: "The board sends several kinds of reports. Instead of writing a decoder from documentation alone, v0.1 dumps raw reports so the decoder can be built against what the hardware actually sends.",
         },
-      ],
-      implemented: [
-        "Finding and opening the Balance Board over HID.",
-        "Reading raw input reports in a loop and printing them in hex.",
-        "Clean shutdown of the device and HID services.",
-      ],
-      planned: [
-        "Decode reports into the four load-cell measurements.",
-        "Convert those measurements into a weight and store readings over time.",
-        "Run it standalone on a small computer with a display.",
       ],
     },
   },
