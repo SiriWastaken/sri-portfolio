@@ -166,48 +166,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "coding-in-orbit",
-    title: "Coding in Orbit",
-    year: "2026–27",
-    category: "iOS & iPadOS app · Swift Student Challenge",
-    status: "in-development",
-    statusNote: "Swift Student Challenge project",
-    tier: "featured",
-    summary:
-      "A SwiftUI app that teaches programming by having you write the commands that steer a rocket through space.",
-    technologies: ["Swift", "SwiftUI", "Swift Playgrounds"],
-    role: "Sole developer",
-    highlights: [
-      "A split-screen workspace that resizes for each device: a code editor with line numbers on one side, the rocket's grid on the other.",
-      "A small parser turns typed lines into commands like launch() and move(up), tracking indentation depth for blocks such as repeat and if.",
-      "An accessibility options screen (dyslexia-friendly font, high contrast, colour-blind mode, reduced motion, speech, haptics, text size) stored with @AppStorage.",
-    ],
-    sourceNote: "Source not public yet",
-    details: {
-      overview: [
-        "An app playground for iPad and iPhone built for the Swift Student Challenge. The first mission is a tutorial: you type commands into a workspace and they move a rocket around a grid in space.",
-      ],
-      role: [
-        "Solo project: design, code, and (eventually) the artwork. The placeholder rocket is marked to be replaced with one I draw myself.",
-      ],
-      architecture: [
-        "The code is split into three areas: a GameEngine (the block parser and block definitions), the UI views, and an AccessibilityEngine (a settings manager, view modifiers, and colour helpers that adapt to high-contrast and colour-blind modes).",
-        "Available blocks live in their own data file, separate from the renderer, so adding a new block or lesson doesn't mean touching the views.",
-        "The workspace re-parses the editor text into code lines as you type. The rocket is a value type with a position on a 20 × 20 grid, and the parser's execute step maps each command onto it and returns a log.",
-      ],
-      challenges: [
-        {
-          title: "Indentation or brackets",
-          body: "Blocks like repeat and if need a way to express nesting. I'm leaning toward indentation, which reads more naturally for beginners but is harder to parse than brackets. The parser already records each line's indentation depth with that in mind.",
-        },
-        {
-          title: "Accessibility from the start",
-          body: "Instead of adding accessibility at the end, every setting lives in one manager that views read from, and it also listens for VoiceOver turning on or off.",
-        },
-      ],
-    },
-  },
-  {
     slug: "wii-fit-scale",
     title: "Wii Fit Scale",
     year: "2026",

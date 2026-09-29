@@ -1,6 +1,5 @@
 import { showImagePlaceholders } from "./placeholders";
 import type { ImageSlot, ProjectAssets } from "./types";
-import codingInOrbit from "./coding-in-orbit";
 import matchSim from "./match-sim";
 import millionaire from "./millionaire";
 import scoutingApp2026 from "./scouting-app-2026";
@@ -16,7 +15,6 @@ export type { ImageSlot, ProjectAssets, ProjectImage } from "./types";
 const registry: Record<string, ProjectAssets> = {
   "scouting-app-2026": scoutingApp2026,
   "scouting-web-2027": scoutingWeb2027,
-  "coding-in-orbit": codingInOrbit,
   "wii-fit-scale": wiiFitScale,
   millionaire,
   "match-sim": matchSim,

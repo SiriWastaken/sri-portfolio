@@ -26,7 +26,7 @@ export function WorkSection() {
       intro={
         <p>
           Most of this is software for FRC Team 610, built for scouts and strategists to use at competitions. The rest is
-          independent work: an iPad app, a hardware experiment, and a few smaller projects.
+          independent work: a hardware experiment and a few smaller projects.
         </p>
       }
     >
@@ -38,12 +38,22 @@ export function WorkSection() {
       </section>
 
       <section aria-labelledby="work-major" className="mt-20">
-        <GroupLabel id="work-major">Other major projects</GroupLabel>
-        <div className="grid gap-12 md:grid-cols-2 md:gap-8">
-          {featured.map((project) => (
-            <FeaturedProject key={project.slug} project={project} />
-          ))}
-        </div>
+        <GroupLabel id="work-major">Hardware &amp; software</GroupLabel>
+        {featured.length > 1 ? (
+          <div className="grid gap-12 md:grid-cols-2 md:gap-8">
+            {featured.map((project) => (
+              <FeaturedProject key={project.slug} project={project} />
+            ))}
+          </div>
+        ) : (
+          <div className="md:grid md:grid-cols-12 md:gap-x-8">
+            {featured.map((project) => (
+              <div key={project.slug} className="md:col-span-9 md:col-start-4">
+                <FeaturedProject project={project} />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       <section aria-labelledby="work-more" className="mt-20">

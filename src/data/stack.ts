@@ -45,7 +45,7 @@ export const stack: TechnologyGroup[] = [
       {
         name: "Swift / SwiftUI",
         icon: siSwift,
-        usedIn: "Building Coding in Orbit, my Swift Student Challenge app, with it.",
+        usedIn: "Picking it up through small iOS projects.",
         learning: true,
       },
       {

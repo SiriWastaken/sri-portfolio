@@ -22,9 +22,9 @@ export function Hero() {
               problems.
             </p>
             <p className="mt-6 max-w-2xl leading-relaxed text-muted">
-              Most of my work is for FRC Team 610: a scouting app our scouts ran on tablets through the 2026 season, and the
-              web dashboard I&apos;m building for 2027. Outside the team I&apos;m working on an iPad app for the Swift
-              Student Challenge and trying to turn a Wii Balance Board into a scale. I write mostly TypeScript and Java.
+              Most of my work is for my robotics team, FIRST Robotics Competition Team 610. On 610, I work on numerous software projects. Some of note would be our scouting system, 
+              which is a way for scouts to record key metrics about robots using an offline-first scouting system, and other various software tools that help our team;
+              this can be anything from designing  
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
